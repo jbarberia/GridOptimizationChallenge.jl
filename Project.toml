@@ -1,0 +1,9 @@
+name = "GridOptimizationChallenge"
+uuid = "1e658340-aa95-4f8f-96cd-fc891886fd83"
+authors = ["Juan Luis Barberia <jbarberia@frba.utn.edu.ar>"]
+version = "0.1.0"
+
+[deps]
+Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+PowerModelsSecurityConstrainedUtils = "1f517646-d7ec-4d65-ab60-45ca177afdfe"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
