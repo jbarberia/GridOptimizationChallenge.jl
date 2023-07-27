@@ -3,7 +3,9 @@ module GridOptimizationChallenge
 using PowerModelsSecurityConstrainedUtils
 using Artifacts
 
-const GOC = joinpath(artifact"GridOptimizationChallenge","GridOptimizationChallengeCases-1.0")
+const GOC = joinpath(
+    artifact"GridOptimizationChallenge", "GridOptimizationChallengeCases-1.0"
+)
 
 """
     grid_optimization_challenge(network::AbstractString, scenario::AbstractString)
@@ -11,7 +13,7 @@ const GOC = joinpath(artifact"GridOptimizationChallenge","GridOptimizationChalle
     open a scenario for the Grid Optimization Challenge for the real time cases.
 """
 function grid_optimization_challenge(network::AbstractString, scenario::AbstractString)
-    _grid_optimization_challenge(network::AbstractString, scenario::AbstractString)
+    return _grid_optimization_challenge(network::AbstractString, scenario::AbstractString)
 end
 
 function _grid_optimization_challenge(network::AbstractString, scenario::AbstractString)
@@ -41,7 +43,7 @@ function find_scenario(scenario_name::AbstractString, network_name::AbstractStri
 
     # create scenario arrays
     scenarios = []
-    for network in possible_networks        
+    for network in possible_networks
         # find possible scenarios
         scenario_folders = readdir(joinpath(GOC, network))
         filter!(x -> isdir(joinpath(GOC, network, x)), scenario_folders)
