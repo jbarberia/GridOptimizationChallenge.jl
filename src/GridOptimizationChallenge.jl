@@ -34,6 +34,24 @@ function find_network(network_name::AbstractString)
     return filtered_networks
 end
 
-export grid_optimization_challenge, find_network
+function find_scenario(scenario_name::AbstractString, network_name::AbstractString)
+    # check if folder exists
+    possible_networks = find_network(network_name)
+    length(possible_networks) == 0 && error("Invalid network name")
+
+    # create scenario arrays
+    scenarios = []
+    for network in possible_networks        
+        # find possible scenarios
+        scenario_folders = readdir(joinpath(GOC, network))
+        filter!(x -> isdir(joinpath(GOC, network, x)), scenario_folders)
+        filtered_scenarios = filter(x -> occursin(scenario_name, x), scenario_folders)
+        push!(scenarios, filtered_scenarios...)
+    end
+
+    return scenarios
+end
+
+export grid_optimization_challenge, find_network, find_scenario
 
 end # module GridOptimizationChallenge

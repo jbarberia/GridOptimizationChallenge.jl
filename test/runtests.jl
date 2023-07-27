@@ -16,5 +16,6 @@ end
 
 @testset "find-files" begin
     @test length(find_network("Network")) == 18
+    @test length(find_scenario("131", "Network_02R-173")) == 1
 end
 
